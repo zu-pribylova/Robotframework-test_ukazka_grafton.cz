@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.12.1 on win32)" generated="20240112 18:24:00.542" rpa="false" schemaversion="4">
+<suite id="s1" name="Grafton Ukazka" source="C:\Testing\robot-scripts\grafton_ukazka\tests\grafton_ukazka.robot">
+<test id="s1-t1" name="Na webu (grafton.cz) lze vyfiltrovat a najít hledanou pozici na plný úvazek v oboru &quot;IT - Vývoj softwaru&quot;" line="17">
+<kw name="Začít test webu" library="common" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20240112 18:24:00.775" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<status status="PASS" starttime="20240112 18:24:00.775" endtime="20240112 18:24:02.325"/>
+</kw>
+<status status="PASS" starttime="20240112 18:24:00.775" endtime="20240112 18:24:02.325"/>
+</kw>
+<kw name="Nastavit rychlost Selenium" library="common">
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<arg>.2s</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" starttime="20240112 18:24:02.327" endtime="20240112 18:24:02.327"/>
+</kw>
+<kw name="Set Selenium Timeout" library="SeleniumLibrary">
+<arg>10s</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" starttime="20240112 18:24:02.327" endtime="20240112 18:24:02.530"/>
+</kw>
+<status status="PASS" starttime="20240112 18:24:02.326" endtime="20240112 18:24:02.530"/>
+</kw>
+<kw name="V prohlížeči přejít na adresu webu (&quot;www.grafton.cz&quot;)" library="grafton_ukazkaApp">
+<kw name="Načíst stránku" library="landingPage">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${STARTINGPAGE}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20240112 18:24:02.531" level="INFO">Opening url 'https://www.grafton.cz'</msg>
+<status status="PASS" starttime="20240112 18:24:02.531" endtime="20240112 18:24:04.175"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20240112 18:24:04.175" endtime="20240112 18:24:04.493"/>
+</kw>
+<status status="PASS" starttime="20240112 18:24:02.531" endtime="20240112 18:24:04.493"/>
+</kw>
+<kw name="Zkontrolovat načtení stránky" library="landingPage">
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>${LANDING_PAGE_MAIN_TEXT}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20240112 18:24:04.494" endtime="20240112 18:24:04.708"/>
+</kw>
+<status status="PASS" starttime="20240112 18:24:04.493" endtime="20240112 18:24:04.708"/>
+</kw>
+<kw name="Nepovolit cookies" library="landingPage">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${COOKIES_DENY_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20240112 18:24:04.712" level="INFO">Clicking button 'id=onetrust-reject-all-handler'.</msg>
+<status status="PASS" starttime="20240112 18:24:04.710" endtime="20240112 18:24:05.830"/>
+</kw>
+<status status="PASS" starttime="20240112 18:24:04.708" endtime="20240112 18:24:05.830"/>
+</kw>
+<status status="PASS" starttime="20240112 18:24:02.530" endtime="20240112 18:24:05.830"/>
+</kw>
+<kw name="V horním menu kliknutím vybrat &quot;Nabídka práce&quot;" library="grafton_ukazkaApp">
+<kw name="Přejít na &quot;Nabídka práce&quot;" library="topMenu">
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>${MENU_NABIDKA_PRACE}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20240112 18:24:05.831" level="INFO">Clicking link 'link:Nabídka práce'.</msg>
+<status status="PASS" starttime="20240112 18:24:05.831" endtime="20240112 18:24:07.159"/>
+</kw>
+<status status="PASS" starttime="20240112 18:24:05.830" endtime="20240112 18:24:07.159"/>
+</kw>
+<kw name="Zkontrolovat načtení stránky" library="searchPage">
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>Nalezeno celkem</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20240112 18:24:07.159" endtime="20240112 18:24:07.375"/>
+</kw>
+<status status="PASS" starttime="20240112 18:24:07.159" endtime="20240112 18:24:07.375"/>
+</kw>
+<status status="PASS" starttime="20240112 18:24:05.830" endtime="20240112 18:24:07.375"/>
+</kw>
+<kw name="Na nově naběhlé stránce v levém rozbaleném menu &quot;Dle úvazku&quot; kliknutím vybrat &quot;Plný úvazek&quot;" library="grafton_ukazkaApp">
+<kw name="Vyfiltrovat nabídky na &quot;Plný úvazek&quot;" library="searchPage">
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>${PLNY_UVAZEK}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20240112 18:24:07.377" level="INFO">Clicking link 'link:Plný úvazek'.</msg>
+<status status="PASS" starttime="20240112 18:24:07.377" endtime="20240112 18:24:08.133"/>
+</kw>
+<status status="PASS" starttime="20240112 18:24:07.377" endtime="20240112 18:24:08.133"/>
+</kw>
+<kw name="Zkontrolovat, že nabídky jsou vyfiltrované pouze na &quot;plný úvazek&quot;" library="searchPage">
+<doc>Zkontroluje, že počet pozic vedle "Plný úvazek" odpovídá uvedenému nalezenému počtu pozic za "Nalezeno celkem"</doc>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${pocet_pozic_plny}</var>
+<arg>${PLNY_UVAZEK_POCET_POZIC}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20240112 18:24:08.617" level="INFO">${pocet_pozic_plny} = 1417</msg>
+<status status="PASS" starttime="20240112 18:24:08.133" endtime="20240112 18:24:08.617"/>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${POCET_POZIC_NALEZENO_CELKEM}</arg>
+<arg>${pocet_pozic_plny}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20240112 18:24:08.617" level="INFO">Verifying element 'xpath://*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/span' contains exact text '1417'.</msg>
+<status status="PASS" starttime="20240112 18:24:08.617" endtime="20240112 18:24:09.041"/>
+</kw>
+<status status="PASS" starttime="20240112 18:24:08.133" endtime="20240112 18:24:09.041"/>
+</kw>
+<status status="PASS" starttime="20240112 18:24:07.375" endtime="20240112 18:24:09.041"/>
+</kw>
+<kw name="V rozbaleném &quot;Dle oboru&quot; kliknutím vybrat &quot;IT - Vývoj softwaru&quot;" library="grafton_ukazkaApp">
+<kw name="Vyfiltrovat nabídky pro &quot;IT - Vývoj softwaru&quot;" library="searchPage">
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>${OBOR_IT_VYVOJ_SOFTWARU}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20240112 18:24:09.046" level="INFO">Clicking link 'link:IT - Vývoj softwaru'.</msg>
+<status status="PASS" starttime="20240112 18:24:09.044" endtime="20240112 18:24:09.851"/>
+</kw>
+<status status="PASS" starttime="20240112 18:24:09.044" endtime="20240112 18:24:09.851"/>
+</kw>
+<kw name="Zkontrolovat, že nabídky jsou vyfiltrované pouze pro &quot;IT - Vývoj softwaru&quot;" library="searchPage">
+<doc>Zkontroluje, že počet pozic vedle "IT - Vývoj softwaru" odpovídá uvedenému nalezenému počtu pozic za "Nalezeno celkem"</doc>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${pocet_pozic_IT}</var>
+<arg>${OBOR_IT_VYVOJ_SOFTWARU_POCET_POZIC}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20240112 18:24:10.276" level="INFO">${pocet_pozic_IT} = 68</msg>
+<status status="PASS" starttime="20240112 18:24:09.851" endtime="20240112 18:24:10.276"/>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${POCET_POZIC_NALEZENO_CELKEM}</arg>
+<arg>${pocet_pozic_IT}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20240112 18:24:10.278" level="INFO">Verifying element 'xpath://*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/span' contains exact text '68'.</msg>
+<status status="PASS" starttime="20240112 18:24:10.276" endtime="20240112 18:24:10.711"/>
+</kw>
+<status status="PASS" starttime="20240112 18:24:09.851" endtime="20240112 18:24:10.711"/>
+</kw>
+<status status="PASS" starttime="20240112 18:24:09.043" endtime="20240112 18:24:10.711"/>
+</kw>
+<kw name="Ve vyhledávacím poli (s placeholderem &quot;Název pracovní pozice&quot;) vyplnit hledanou pozici" library="grafton_ukazkaApp">
+<kw name="Vyplnit zadanou pozici" library="searchPage">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${POLE_HLEDANI_POZICE}</arg>
+<arg>${HLEDANA_POZICE}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240112 18:24:10.712" level="INFO">Typing text 'tester' into text field 'id:autosuggest__input'.</msg>
+<status status="PASS" starttime="20240112 18:24:10.712" endtime="20240112 18:24:11.509"/>
+</kw>
+<status status="PASS" starttime="20240112 18:24:10.711" endtime="20240112 18:24:11.509"/>
+</kw>
+<status status="PASS" starttime="20240112 18:24:10.711" endtime="20240112 18:24:11.509"/>
+</kw>
+<kw name="Stistknou klávesu &quot;enter&quot; na klávesnici" library="grafton_ukazkaApp">
+<kw name="Potvrdit zadání názvu vyhledávané pozice" library="searchPage">
+<doc>Stisknutí klávesy "enter"</doc>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>${POLE_HLEDANI_POZICE}</arg>
+<arg>\ue007</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20240112 18:24:11.511" level="INFO">Sending key(s) ('\ue007',) to id:autosuggest__input element.</msg>
+<msg timestamp="20240112 18:24:12.213" level="INFO">Sending key </msg>
+<status status="PASS" starttime="20240112 18:24:11.511" endtime="20240112 18:24:12.453"/>
+</kw>
+<status status="PASS" starttime="20240112 18:24:11.510" endtime="20240112 18:24:12.453"/>
+</kw>
+<status status="PASS" starttime="20240112 18:24:11.510" endtime="20240112 18:24:12.453"/>
+</kw>
+<kw name="Na stránce se ve vyfiltrovaných výsledcích nachází hledaná pozice" library="grafton_ukazkaApp">
+<kw name="Zkontrolovat nalezení vyhledávané pozice mezi nalezenými výsledky" library="searchPage">
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>${VYSLEDKY_HLEDANI}</arg>
+<arg>${HLEDANA_POZICE}</arg>
+<arg>ignore_case=True</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20240112 18:24:12.881" level="INFO">Element 'xpath://*[@id="app"]/div[1]/div[2]/div[2]/div' contains text 'tester'.</msg>
+<status status="PASS" starttime="20240112 18:24:12.454" endtime="20240112 18:24:12.881"/>
+</kw>
+<status status="PASS" starttime="20240112 18:24:12.453" endtime="20240112 18:24:12.881"/>
+</kw>
+<status status="PASS" starttime="20240112 18:24:12.453" endtime="20240112 18:24:12.881"/>
+</kw>
+<kw name="Ukončit test webu" library="common" type="TEARDOWN">
+<kw name="Sleep" library="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240112 18:24:15.883" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20240112 18:24:12.882" endtime="20240112 18:24:15.883"/>
+</kw>
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20240112 18:24:15.883" endtime="20240112 18:24:18.231"/>
+</kw>
+<status status="PASS" starttime="20240112 18:24:12.882" endtime="20240112 18:24:18.231"/>
+</kw>
+<doc>Informace o ukázkovém testu č. 001 pro Grafton.cz</doc>
+<tag>001</tag>
+<status status="PASS" starttime="20240112 18:24:00.774" endtime="20240112 18:24:18.232"/>
+</test>
+<doc>Informace o ukázkové test suite pro Grafton.cz</doc>
+<status status="PASS" starttime="20240112 18:24:00.543" endtime="20240112 18:24:18.235"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">001</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Grafton Ukazka">Grafton Ukazka</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
